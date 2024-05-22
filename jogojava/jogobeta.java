@@ -15,13 +15,12 @@ public class jogobeta{
         tocar = new Thread(() -> sombeta. GerenciadorSom.iniciarSomMenu()); // Inicialização do Thread
         tocar.start();
        
-       ;
+       
        
         Menu();
         
-        opções();
-      
-      
+        
+    
     }
     
     
@@ -71,7 +70,7 @@ public class jogobeta{
         };
 
         coresbeta.coresDegrade(menu);
-       
+       opções();
 
       
     }
@@ -305,13 +304,16 @@ public class jogobeta{
         String tentativa = "";
         boolean venceu = false;
         int primJ = 0;
+        for(int cont = 0;cont<jogadoresPresentes;cont++){
+            inicializandoStringsChute(jogadoresPresentes,palavrasO , Chute, cont);
+        }
         do{
             for(int cont = 0;cont<jogadoresPresentes;cont++){
             
-                
-                inicializandoStringsChute(jogadoresPresentes,palavrasO , Chute, cont);
 
-                if(primJ<2){
+                if(primJ<jogadoresPresentes){
+                    System.out.println(Chute[cont]);
+                }else{
                     System.out.println(Chute[cont]);
                 }
                 
