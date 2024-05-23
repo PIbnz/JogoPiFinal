@@ -10,7 +10,8 @@ public class jogobeta{
     public static int jogadoresPresentes = 1;
     public static int globalWidth = 45;
     public static Thread tocar; // Declaração do Thread, mas sem inicialização
-    
+    public static String[] palavraSingle = new String[1];
+
     public static void main(String[] args) throws Exception {
         tocar = new Thread(() -> sombeta. GerenciadorSom.iniciarSomMenu()); // Inicialização do Thread
         tocar.start();
@@ -105,6 +106,13 @@ public class jogobeta{
     }
 
     public static void SinglePlayer(){
+
+         String[] palavras = new String[jogadoresPresentes];
+         String[] nomes = new String[jogadoresPresentes];
+         String[] stringChute = new String[jogadoresPresentes];
+
+         Nomes(nomes);
+         dificuldade(nomes);
         
         
 
@@ -113,17 +121,19 @@ public class jogobeta{
     public static void Multiplayer(){
         
         JogadoresPresentes();
+
          String[] palavras = new String[jogadoresPresentes];
          String[] nomes = new String[jogadoresPresentes];
          String[] stringChute = new String[jogadoresPresentes];
-         int[] vencer = new int[jogadoresPresentes];
+
         Nomes(nomes);
         Palvras(palavras,nomes);
+
         sombeta.GerenciadorSom.pararSomMenu();
         sombeta.sominicio();
         embaralhar(palavras);
       
-        Jogadas(stringChute, palavras, nomes,vencer);
+        Jogadas(stringChute, palavras, nomes);
         
         
         System.out.println();
@@ -294,7 +304,7 @@ public class jogobeta{
          
        
     }
-    public static void Jogadas(String[] Chute,String[] palavrasO,String[] nomes,int[] vencer){
+    public static void Jogadas(String[] Chute,String[] palavrasO,String[] nomes){
 
         
         
@@ -327,7 +337,7 @@ public class jogobeta{
                 
                 atualizandoChuteFinal(palavrasO, tentativa, Chute, cont);
                 
-                exibirTentativa(palavrasO, tentativa, cont,vencer);
+                exibirTentativa(palavrasO, tentativa, cont);
                 System.out.println();
                 
                 venceu = VerVenc(palavrasO, tentativa, cont);
@@ -387,7 +397,7 @@ public class jogobeta{
             }
         }
     
-        public static void exibirTentativa(String[] orig, String tent, int jogadorDaVez,int[] vencer) {
+        public static void exibirTentativa(String[] orig, String tent, int jogadorDaVez) {
             for (int i = 0; i < orig[jogadorDaVez].length(); i++) {
                 if (orig[jogadorDaVez].charAt(i) == tent.charAt(i)) {
                     escrever(tent.charAt(i), "verde");
@@ -409,6 +419,56 @@ public class jogobeta{
                 System.out.printf("\u001b[33;1m" + letra + "\u001b[0m");
             }else{
                 System.out.print("\u001b[0m" + "_");
+            }
+        }
+
+        public static void dificuldade(String[] nomes){
+
+            int dificuldade = 0;
+
+            System.out.println("Agora "+nomes[0]+" ,escolha a dificuldade");
+            System.out.println("");
+            System.out.println("1 - Facil");
+            System.out.println("2 - Medio");
+            System.out.println("3 - Dificil");
+            System.out.println("4 - Muito dificil");
+            System.out.println("0 - Voltar para o menu");
+
+            do{
+            dificuldade = miau.nextInt();
+            if(dificuldade>4 || dificuldade<0){
+                System.out.println("Valor não reconhecido, insira um valor valido");
+            }    
+            }while(dificuldade>4 || dificuldade<0);
+
+            switch (dificuldade) {
+                case 0:
+                    Menu();
+                    break;
+            
+                default:
+                    BancoDePalavras(dificuldade);
+                    break;
+            }
+        }
+
+        public static void BancoDePalavras(int dificuldade){
+
+            int palavra = mew.nextInt(30);
+
+            String[] facil = new String[] {};
+            String[] medio = new String[] {};
+            String[] dificil = new String[] {};
+            String[] muitodificil = new String[] {};
+
+            if(dificuldade == 1){
+            palavraSingle[0] = facil[palavra];
+            }else if(dificuldade == 2){
+            palavraSingle[0] = medio[palavra];
+            }else if(dificuldade == 3){
+            palavraSingle[0] = dificil[palavra];    
+            }else{
+            palavraSingle[0] = muitodificil[palavra];    
             }
         }
     
