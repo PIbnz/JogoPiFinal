@@ -18,7 +18,7 @@ public static class GerenciadorSom {
             if (!somMenuTocando) {
                 try {
                     Thread.sleep(1560);
-                    File file = new File("jogoPiFinal/sons/espera.wav");
+                    File file = new File("sons/espera.wav");
                     clipMenu = AudioSystem.getClip();
                     clipMenu.open(AudioSystem.getAudioInputStream(file));
                     clipMenu.loop(Clip.LOOP_CONTINUOUSLY);
@@ -44,7 +44,7 @@ public static class GerenciadorSom {
     public static  void som1() {
        
         try {
-            File file = new File("jogoPiFinal/sons/espe2.wav");
+            File file = new File("sons/espe2.wav");
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.stop();
@@ -57,7 +57,7 @@ public static class GerenciadorSom {
     public static  void toqueSom() {
         // Stop any current sound before playing a new one
         try {
-            File file = new File("jogoPiFinal/sons/clik.wav");
+            File file = new File("sons/clik.wav");
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
@@ -71,7 +71,7 @@ public static class GerenciadorSom {
     public static void erroSom() {
         pararSom();
         try {
-            File file = new File("jogoPiFinal/sons/erro.wav");
+            File file = new File("sons/erro.wav");
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
@@ -83,7 +83,7 @@ public static class GerenciadorSom {
     public static void toque1Som() {
         pararSom();
         try {
-            File file = new File("jogoPiFinal/sons/sele.wav");
+            File file = new File("sons/sele.wav");
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
@@ -94,7 +94,7 @@ public static class GerenciadorSom {
     public static  void sominicio() {
        
         try {
-            File file = new File("jogoPiFinal/sons/play.wav");
+            File file = new File("sons/play.wav");
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
@@ -105,7 +105,7 @@ public static class GerenciadorSom {
     public static  void somjogo() {
        
         try {
-            File file = new File("jogoPiFinal/sons/somdojogoD.wav");
+            File file = new File("sons/somdojogoD.wav");
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
@@ -118,7 +118,7 @@ public static class GerenciadorSom {
     public static  void toqueintre() {
         // Stop any current sound before playing a new one
         try {
-            File file = new File("jogoPiFinal/sons/intre.wav");
+            File file = new File("sons/intre.wav");
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
@@ -131,7 +131,7 @@ public static class GerenciadorSom {
     public static  void toquedeintre() {
         // Stop any current sound before playing a new one
         try {
-            File file = new File("jogoPiFinal/sons/intre1.wav");
+            File file = new File("sons/intre1.wav");
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
@@ -144,7 +144,7 @@ public static class GerenciadorSom {
     public static  void toqueErro() {
         // Stop any current sound before playing a new one
         try {
-            File file = new File("jogoPiFinal/sons/erro1.wav");
+            File file = new File("sons/erro1.wav");
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
@@ -157,7 +157,7 @@ public static class GerenciadorSom {
     public static  void acertoJogada() {
         // Stop any current sound before playing a new one
         try {
-            File file = new File("jogoPiFinal/sons/acertojogada.wav");
+            File file = new File("sons/acertojogada.wav");
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
@@ -170,7 +170,7 @@ public static class GerenciadorSom {
     public static  void maisOuMenosJogada() {
         // Stop any current sound before playing a new one
         try {
-            File file = new File("jogoPiFinal/sons/toque.wav");
+            File file = new File("sons/toque.wav");
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
