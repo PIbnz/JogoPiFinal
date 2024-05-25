@@ -107,13 +107,12 @@ public class jogobeta{
 
     public static void SinglePlayer(){
 
-         String[] palavras = new String[jogadoresPresentes];
          String[] nomes = new String[jogadoresPresentes];
          String[] stringChute = new String[jogadoresPresentes];
 
          Nomes(nomes);
          dificuldade(nomes);
-        
+         Jogadas(stringChute, palavraSingle, nomes);
         
 
     }
@@ -135,7 +134,6 @@ public class jogobeta{
         Jogadas(stringChute, palavras, nomes);
         
         
-        System.out.println();
 
     }
    
@@ -366,6 +364,8 @@ public class jogobeta{
                 System.out.println();
                 
                 venceu = VerVenc(palavrasO, tentativa, cont);
+                
+                
                 if(venceu == true){
                     break;
                 }
