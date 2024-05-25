@@ -10,94 +10,7 @@ public class sombeta {
         // Main method para teste, não é necessário usar aqui
     }
 
-    public static  void som() {
-        pararSom();
-        try {
-            
-            File file = new File("sons/espera.wav");
-            clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(file));
-            clip.loop(2);
-            
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-       
-    }
-    
-    public static  void som1() {
-       
-        try {
-            File file = new File("sons/espe2.wav");
-            clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(file));
-            clip.stop();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public static  void toqueSom() {
-        // Stop any current sound before playing a new one
-        try {
-            File file = new File("sons/clik.wav");
-            clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(file));
-            clip.start();
-           
-            
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public static void erroSom() {
-        pararSom();
-        try {
-            File file = new File("sons/erro.wav");
-            clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(file));
-            clip.start();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public static void toque1Som() {
-        pararSom();
-        try {
-            File file = new File("sons/sele.wav");
-            clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(file));
-            clip.start();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    public static  void sominicio() {
-       
-        try {
-            File file = new File("sons/play.wav");
-            clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(file));
-            clip.start();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    public static  void somjogo() {
-       
-        try {
-            File file = new File("sons/somdojogoD.wav");
-            clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(file));
-            clip.start();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-   
-    public static class GerenciadorSom {
+public static class GerenciadorSom {
         private static Clip clipMenu;
         private static boolean somMenuTocando = false;
 
@@ -105,7 +18,7 @@ public class sombeta {
             if (!somMenuTocando) {
                 try {
                     Thread.sleep(1560);
-                    File file = new File("sons/espera.wav");
+                    File file = new File("jogoPiFinal/sons/espera.wav");
                     clipMenu = AudioSystem.getClip();
                     clipMenu.open(AudioSystem.getAudioInputStream(file));
                     clipMenu.loop(Clip.LOOP_CONTINUOUSLY);
@@ -127,6 +40,146 @@ public class sombeta {
             }
         }
     }
+    
+    public static  void som1() {
+       
+        try {
+            File file = new File("jogoPiFinal/sons/espe2.wav");
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.stop();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    
+    public static  void toqueSom() {
+        // Stop any current sound before playing a new one
+        try {
+            File file = new File("jogoPiFinal/sons/clik.wav");
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.start();
+           
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void erroSom() {
+        pararSom();
+        try {
+            File file = new File("jogoPiFinal/sons/erro.wav");
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void toque1Som() {
+        pararSom();
+        try {
+            File file = new File("jogoPiFinal/sons/sele.wav");
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public static  void sominicio() {
+       
+        try {
+            File file = new File("jogoPiFinal/sons/play.wav");
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public static  void somjogo() {
+       
+        try {
+            File file = new File("jogoPiFinal/sons/somdojogoD.wav");
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+   
+   
+    public static  void toqueintre() {
+        // Stop any current sound before playing a new one
+        try {
+            File file = new File("jogoPiFinal/sons/intre.wav");
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.start();
+           
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public static  void toquedeintre() {
+        // Stop any current sound before playing a new one
+        try {
+            File file = new File("jogoPiFinal/sons/intre1.wav");
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.start();
+           
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public static  void toqueErro() {
+        // Stop any current sound before playing a new one
+        try {
+            File file = new File("jogoPiFinal/sons/erro1.wav");
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.start();
+           
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public static  void acertoJogada() {
+        // Stop any current sound before playing a new one
+        try {
+            File file = new File("jogoPiFinal/sons/acertojogada.wav");
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.start();
+           
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public static  void maisOuMenosJogada() {
+        // Stop any current sound before playing a new one
+        try {
+            File file = new File("jogoPiFinal/sons/toque.wav");
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.start();
+           
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
     public static void pararSom() {
         if (clip != null) {
             clip.stop();
@@ -135,4 +188,5 @@ public class sombeta {
            
         }
     }
+
 }

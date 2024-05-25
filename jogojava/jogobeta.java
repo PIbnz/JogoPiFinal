@@ -42,7 +42,7 @@ public class jogobeta{
             }
          }
         coresbeta.Logo();
-
+        aguardarEnter();
         
         
  
@@ -129,8 +129,7 @@ public class jogobeta{
         Nomes(nomes);
         Palvras(palavras,nomes);
 
-        sombeta.GerenciadorSom.pararSomMenu();
-        sombeta.sominicio();
+       
         embaralhar(palavras);
       
         Jogadas(stringChute, palavras, nomes);
@@ -286,11 +285,25 @@ public class jogobeta{
     
     public static void Palvras(String[] palavras,String[] nomes){
     
-       
-        System.out.println("Vamos escolher as palavras agora");
+        String[] pa ={"  ╔════════════════════════════════════════════════════════════╗ \n",
+                      " ╔╝                                                            ╚╗\n",
+                      " ║               Vamos escolher as palavras agora               ║\n",
+                      " ╚╗                                                            ╔╝\n",
+                      "  ╚════════════════════════════════════════════════════════════╝ \n"};
+        coresbeta.coresDegrade(pa);
+      
         for(int cont = 0;cont<jogadoresPresentes;cont++){
-            System.out.printf("%s escolha uma palavra\n",nomes[cont]);
+            String text1 = String.format(
+                "              ╔════════════════════════════════════════════════════════════╗\n" +
+                "             ╔╝                                                            ╚╗\n" +
+                "             ║                     %s escolha uma palavra                   ║\n" +
+                "             ╚╗                                                            ╔╝\n" +
+                "              ╚════════════════════════════════════════════════════════════╝\n" ,nomes[cont]
+            );
+             
+            coresbeta.coresDegradeText(text1);
             palavras[cont] = miau.next();
+            sombeta.toque1Som();
             apagar();
           
         }
@@ -305,12 +318,10 @@ public class jogobeta{
        
     }
     public static void Jogadas(String[] Chute,String[] palavrasO,String[] nomes){
-
+        sombeta.GerenciadorSom.pararSomMenu();
+        tocar = new Thread(() -> sombeta.somjogo() ); // Inicialização do Thread
+        tocar.start();
         
-        
-       
-        sombeta.somjogo();
-       
         String tentativa = "";
         boolean venceu = false;
         int primJ = 0;
@@ -322,16 +333,30 @@ public class jogobeta{
             
 
                 if(primJ<jogadoresPresentes){
-                    System.out.println(Chute[cont]);
+                    align(Chute[cont]);
                 }else{
                     System.out.println(Chute[cont]);
                 }
                 
-                System.out.printf("%s , de um chute\n",nomes[cont]);
+                String texte = String.format(
+                    "              ╔════════════════════════════════════════════════════════════╗\n" +
+                    "             ╔╝                                                            ╚╗\n" +
+                    "             ║                     [%s , de um chute]                        ║\n" +
+                    "             ╚╗                                                            ╔╝\n" +
+                    "              ╚════════════════════════════════════════════════════════════╝\n" ,nomes[cont]
+                );
+                  coresbeta.coresDegradeText(texte);
                 do{
                 tentativa = miau.next();
                 if(tentativa.length() != Chute[cont].length()){
-                    System.out.printf("Porfavor, insira uma palavra com %d letras\n",palavrasO[cont].length());
+                    String texte1 = String.format(
+                        "              ╔════════════════════════════════════════════════════════════╗\n" +
+                        "             ╔╝                                                            ╚╗\n" +
+                        "             ║          Porfavor, insira uma palavra com %d letras           ║\n" +
+                        "             ╚╗                                                            ╔╝\n" +
+                        "              ╚════════════════════════════════════════════════════════════╝\n" ,palavrasO[cont].length()
+                    );
+                    coresbeta.coresDegradeText(texte1);
                 }
                 }while(tentativa.length() != Chute[cont].length());
                 
@@ -401,11 +426,14 @@ public class jogobeta{
             for (int i = 0; i < orig[jogadorDaVez].length(); i++) {
                 if (orig[jogadorDaVez].charAt(i) == tent.charAt(i)) {
                     escrever(tent.charAt(i), "verde");
+                    sombeta.acertoJogada();
                 }
                 else if (orig[jogadorDaVez].contains(""+tent.charAt(i))){
                     escrever(tent.charAt(i), "amarelo");
+                    sombeta.maisOuMenosJogada();
                 }else{
                     escrever(tent.charAt(i), "cinza");
+                    sombeta.erroSom();
                 }
                 if(i == (orig[jogadorDaVez].length())){
                 }
@@ -510,6 +538,12 @@ public class jogobeta{
             else
                 System.out.print(transformText);
     
+        }
+        public static void aguardarEnter() {
+            System.out.println("Pressione Enter para continuar...");
+            
+            miau.nextLine();
+            sombeta.toquedeintre(); // Aguarda até que o usuário pressione Enter
         }
        
     
