@@ -2,9 +2,11 @@ package jogojava;
 import java.awt.Color;
 import java.util.Random;
 import java. util.Scanner;
+
+
 public class coresbeta {
     
-
+    private static boolean enterPressed = false;
     static Random mew = new Random();
     static Scanner scanner =new Scanner(System.in);
 
@@ -74,81 +76,125 @@ public static String[] generateGradient(String color1, String color2, int quanti
 
     return degrade;
 }
-public static void Logo(){
-    String[] titulo ={ "                                     ,---,              ,---,                        ,--.'|               \r\n",
-             "         .---.   ,---.    __  ,-.  ,---.'|            ,---.'|         ,--,           |  | :               \r\n",
-             "        /. ./|  '   ,'\\ ,' ,'/ /|  |   | :            |   | :       ,'_ /|           :  : '    .--.--.    \r\n",
-             "     .-'-. ' | /   /   |'  | |' |  |   | |            |   | |  .--. |  | :    ,---.  |  ' |   /  /    '   \r\n",
-             "    /___/ \\: |.   ; ,. :|  |   ,',--.__| |          ,--.__| |,'_ /| :  . |   /     \\ '  | |  |  :  /`./   \r\n",
-             " .-'.. '   ' .'   | |: :'  :  / /   ,'   |         /   ,'   ||  ' | |  . .  /    /  ||  | :  |  :  ;_     \r\n",
-             "/___/ \\:     ''   | .; :|  | ' .   '  /  |        .   '  /  ||  | ' |  | | .    ' / |'  : |__ \\  \\    `.  \r\n",
-             ".   \\  ' .\\   |   :    |;  : | '   ; |:  |        '   ; |:  |:  | : ;  ; | '   ;   /||  | '.'| `----.   \\ \r\n",
-             " \\   \\   ' \\ | \\   \\  / |  , ; |   | '/  '        |   | '/  ''  :  `--'   \\'   |  / |;  :    ;/  /`--'  / \r\n",
-             "  \\   \\  |--\"   `----'   ---'  |   :    :|        |   :    :|:  ,      .-./|   :    ||  ,   /'--'.     /  \r\n",
-             "   \\   \\ |                      \\   \\  /           \\   \\  /   `--`----'     \\   \\  /  ---`-'   `--'---'   \r\n",
-             "    '---\"                        `----'             `----'                   `----'                       "};
+public static void Logo() {
+    String[] titulo = {
+        "                                     ,---,              ,---,                        ,--.'|               \r\n",
+        "         .---.   ,---.    __  ,-.  ,---.'|            ,---.'|         ,--,           |  | :               \r\n",
+        "        /. ./|  '   ,'\\ ,' ,'/ /|  |   | :            |   | :       ,'_ /|           :  : '    .--.--.    \r\n",
+        "     .-'-. ' | /   /   |'  | |' |  |   | |            |   | |  .--. |  | :    ,---.  |  ' |   /  /    '   \r\n",
+        "    /___/ \\: |.   ; ,. :|  |   ,',--.__| |          ,--.__| |,'_ /| :  . |   /     \\ '  | |  |  :  /`./   \r\n",
+        " .-'.. '   ' .'   | |: :'  :  / /   ,'   |         /   ,'   ||  ' | |  . .  /    /  ||  | :  |  :  ;_     \r\n",
+        "/___/ \\:     ''   | .; :|  | ' .   '  /  |        .   '  /  ||  | ' |  | | .    ' / |'  : |__ \\  \\    `.  \r\n",
+        ".   \\  ' .\\   |   :    |;  : | '   ; |:  |        '   ; |:  |:  | : ;  ; | '   ;   /||  | '.'| `----.   \\ \r\n",
+        " \\   \\   ' \\ | \\   \\  / |  , ; |   | '/  '        |   | '/  ''  :  `--'   \\'   |  / |;  :    ;/  /`--'  / \r\n",
+        "  \\   \\  |--\"   `----'   ---'  |   :    :|        |   :    :|:  ,      .-./|   :    ||  ,   /'--'.     /  \r\n",
+        "   \\   \\ |                      \\   \\  /           \\   \\  /   `--`----'     \\   \\  /  ---`-'   `--'---'   \r\n",
+        "    '---\"                        `----'             `----'                   `----'                       ",
+        "    \n",
+        "    \n",
+        "   \n",
+        "    \n",
+        "                                    [selecione  ENTER para continuar]\n"        };
     int quantidadeC = titulo.length;
 
-    int aleatorio = mew.nextInt(1,6);
-    String[] colors =new String[titulo.length];
-    switch (aleatorio) {
-        case 1:
-            colors = generateGradient("#FFA500", "#4B0082", quantidadeC);
-            break;
-        case 2:
-            colors = generateGradient("#00ffa7", "#4B0082", quantidadeC);
-            break;
-        case 3:
-            colors = generateGradient("#33CCFF", "#4B0082", quantidadeC);
-            break;
-        case 4:
-            colors = generateGradient("#FF1493", "#4B0082", quantidadeC);
-            break;
-        case 5:
-            colors = generateGradient("#FFA500", "#00FF00", quantidadeC);
-            break;
-        default:
-            colors = generateGradient("#FF1493", "#FFFF00", quantidadeC);
-            break;
-    }
-    for (int i = 0; i < quantidadeC ; i++) {
+    // Gera um degradê de cores
+    String[] colors = degradelogo("#7F00FF", "#FF0000", quantidadeC);
+
+    // Imprime o logo linha por linha com o degradê de cores
+    for (int i = 0; i < quantidadeC; i++) {
         System.out.print(colors[i] + titulo[i]);
-        // Aguarda 200 milissegundos entre cada quadro
         try {
-            Thread.sleep(150); // Aguarda 100 milissegundos entre cada quadro
+            Thread.sleep(150); // Aguarda 150 milissegundos entre cada linha
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-    
 
-    // Resetar a cor 
-    System.out.println("\u001B[0m");
+    // Número de quadros na animação
+    int frameMenu = 100000; // Reduzi o número de quadros para fins de teste
+    // Tempo de atraso entre cada quadro em milissegundos
+    int delay = 100;
+
+    // Cria e inicia uma nova thread para a animação de mudança de cores
+    Thread animacao= new Thread(() -> {
+        for (int frame = 0; frame < frameMenu; frame++) {
+            // Move o cursor para cima para sobrescrever as linhas
+            System.out.print("\u001B[" + quantidadeC + "A");
+            // Desenha o logo com o degradê
+            for (int i = 0; i < quantidadeC; i++) {
+                // Calcula o índice de cor para cada linha, deslocado pelo quadro atual
+                int colorIndex = (i + frame) % quantidadeC;
+                // Imprime a linha do logo com a cor correspondente
+                System.out.print(colors[colorIndex] + titulo[i]);
+            }
+
+            // Aguarda um curto período de tempo antes de desenhar o próximo quadro
+            try {
+                // Verifica se o Enter foi pressionado para interromper o Thread.sleep(delay)
+                for (int i = 0; i < delay / 10; i++) {
+                    if (enterPressed) {
+                        enterPressed = false; // Reinicia a flag
+                        return; // Sai do loop e interrompe a execução do thread
+                    }
+                    Thread.sleep(10); // Aguarda 10 milissegundos antes de verificar novamente
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Reseta a cor após a animação
+        System.out.println("\u001B[0m");
+    });
+    animacao.start(); // Inicia a thread de animação
+
+    // Aguarda até que o usuário pressione Enter
+    aguardarEnter();
+
+    // Aguarda a thread de animação terminar
+    try {
+        animacao.join();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+
+    // Apresenta o menu após o Enter
     
 }
 
+// Função para gerar o degradê de cores
 public static String[] degradelogo(String color1, String color2, int quanti) {
     String[] degrade = new String[quanti];
 
-    Color comecotColor = Color.decode(color1);// Color.decode tranfoema o "#FFA500" em cor no java
-    Color fimColor = Color.decode(color2);
+    Color comecotColor = Color.decode(color1); // Transforma a cor inicial de string para Color
+    Color fimColor = Color.decode(color2); // Transforma a cor final de string para Color
 
     // Calcula o incremento de cor para cada etapa
     float corR = (float) (fimColor.getRed() - comecotColor.getRed()) / quanti;
     float corG = (float) (fimColor.getGreen() - comecotColor.getGreen()) / quanti;
-    float corB = (float) (fimColor.getBlue() - comecotColor.getBlue()) /quanti;
+    float corB = (float) (fimColor.getBlue() - comecotColor.getBlue()) / quanti;
 
-    // Gera as cores intermediárias, fazendo o degrade das cores
+    // Gera as cores intermediárias para o degradê
     for (int i = 0; i < quanti; i++) {
         int r = comecotColor.getRed() + Math.round(corR * i);
         int g = comecotColor.getGreen() + Math.round(corG * i);
         int b = comecotColor.getBlue() + Math.round(corB * i);
 
-        degrade[i] = "\u001B[38;2;" + r + ";" + g + ";" + b + "m";//mistura as cores r g b fomanod cada cor de degrade
+        degrade[i] = "\u001B[38;2;" + r + ";" + g + ";" + b + "m"; // Define a cor no formato ANSI
     }
 
     return degrade;
 }
+
+// Função para aguardar que o usuário pressione Enter
+public static void aguardarEnter() {
+    scanner = new Scanner(System.in);
+    
+    scanner.nextLine(); // Aguarda até que o usuário pressione Enter
+    // Define a flag para indicar que o Enter foi pressionado
+    enterPressed = true;
+}
+
 public static void corvermelho(String[] titulo) {
                          
     int quantidadeC = titulo.length;

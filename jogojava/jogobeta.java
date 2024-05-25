@@ -32,17 +32,9 @@ public class jogobeta{
         
          apagar();
 
-         String[]bem ={"B","e","m", " v","i","n","d","o", " a","o",".",".",".\n"};      
-         for(int num=0; num<13;num++){
-            System.out.print(bem[num]);
-            try {
-                Thread.sleep(150); // Aguarda 150 milissegundos entre cada quadro
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-         }
+        
         coresbeta.Logo();
-        aguardarEnter();
+       sombeta.toquedeintre();
         
         
  
@@ -268,7 +260,7 @@ public class jogobeta{
             String text = String.format(
                 "╔═════════════════════════════════════════════════════╗\n" +
                 "║                                                     ║\n" +
-                "║             Jogador %d, qual o seu nome?             ║\n" +
+                "║             Jogador %d, qual o seu nome?            ║\n" +
                 "║                                                     ║\n" +
                 "╚═════════════════════════════════════════════════════╝\n", conti
             );
