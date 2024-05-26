@@ -289,11 +289,16 @@ public class jogobeta{
       
         for(int cont = 0;cont<jogadoresPresentes;cont++){
             String text1 = String.format(
+                
+                "                               ╔═════════╝        ╚═════════╗                \n"+
                 "              ╔════════════════════════════════════════════════════════════╗\n" +
                 "             ╔╝                                                            ╚╗\n" +
-                "             ║                     %s escolha uma palavra                   ║\n" +
+                "                                %s escolha uma palavra                         \n" +
                 "             ╚╗                                                            ╔╝\n" +
-                "              ╚════════════════════════════════════════════════════════════╝\n" ,nomes[cont]
+                "              ╚════════════════════════════════════════════════════════════╝\n"+
+                "                               ╚═════════╗        ╔═════════╝              \n"
+                ,nomes[cont]
+                ,nomes[cont]
             );
              
             coresbeta.coresDegradeText(text1);
@@ -330,23 +335,30 @@ public class jogobeta{
                     align(Chute[cont]);
                 
                 
-                String texte = String.format(
+                String texte = String.format(                                      
+                  
+                    "                               ╔═════════╝        ╚═════════╗                \n"+
                     "              ╔════════════════════════════════════════════════════════════╗\n" +
                     "             ╔╝                                                            ╚╗\n" +
-                    "             ║                     [%s , de um chute]                        ║\n" +
+                    "                                 [%s , de um chute]                          \n" +
                     "             ╚╗                                                            ╔╝\n" +
-                    "              ╚════════════════════════════════════════════════════════════╝\n" ,nomes[cont]
-                );
+                    "              ╚════════════════════════════════════════════════════════════╝\n"+
+                    "                               ╚═════════╗        ╔═════════╝              \n"
+                    ,nomes[cont]
+                );                             
                   coresbeta.coresDegradeText(texte);
                 do{
                 tentativa = miau.next();
                 if(tentativa.length() != Chute[cont].length()){
                     String texte1 = String.format(
+                        "                              ╔═════════╝        ╚═════════╗   \n"+
                         "              ╔════════════════════════════════════════════════════════════╗\n" +
                         "             ╔╝                                                            ╚╗\n" +
-                        "             ║          Porfavor, insira uma palavra com %d letras           ║\n" +
+                        "                       Porfavor, insira uma palavra com %d letras            \n" +
                         "             ╚╗                                                            ╔╝\n" +
-                        "              ╚════════════════════════════════════════════════════════════╝\n" ,palavrasO[cont].length()
+                        "              ╚════════════════════════════════════════════════════════════╝\n"+
+                        "                              ╚═════════╗        ╔═════════╝              \n"
+                        ,palavrasO[cont].length()
                     );
                     coresbeta.coresDegradeText(texte1);
                 }
