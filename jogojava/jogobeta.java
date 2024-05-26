@@ -260,7 +260,7 @@ public class jogobeta{
             String text = String.format(
                 "╔═════════════════════════════════════════════════════╗\n" +
                 "║                                                     ║\n" +
-                "║             Jogador %d, qual o seu nome?            ║\n" +
+                "║             Jogador %d, qual o seu nome?             ║\n" +
                 "║                                                     ║\n" +
                 "╚═════════════════════════════════════════════════════╝\n", conti
             );
@@ -308,9 +308,11 @@ public class jogobeta{
        
     }
     public static void Jogadas(String[] Chute,String[] palavrasO,String[] nomes){
+        
         sombeta.GerenciadorSom.pararSomMenu();
-        tocar = new Thread(() -> sombeta.somjogo() ); // Inicialização do Thread
-        tocar.start();
+        sombeta.sominicio();
+        Thread toque1 = new Thread(() -> sombeta.somJogoPartida.iniciarMuisca()); // Inicialização do Thread
+        toque1.start();
         
         String tentativa = "";
         boolean venceu = false;
@@ -412,17 +414,18 @@ public class jogobeta{
                     stringChuteFinal[jogadorDaVez] = substituirCharacter(stringChuteFinal[jogadorDaVez], i, tent.charAt(i));
                 }
             }
+           
         }
     
         public static void exibirTentativa(String[] orig, String tent, int jogadorDaVez) {
             for (int i = 0; i < orig[jogadorDaVez].length(); i++) {
                 if (orig[jogadorDaVez].charAt(i) == tent.charAt(i)) {
                     escrever(tent.charAt(i), "verde");
-                    sombeta.acertoJogada();
+                   
                 }
                 else if (orig[jogadorDaVez].contains(""+tent.charAt(i))){
                     escrever(tent.charAt(i), "amarelo");
-                    sombeta.maisOuMenosJogada();
+                  
                 }else{
                     escrever(tent.charAt(i), "cinza");
                     sombeta.erroSom();
@@ -446,14 +449,18 @@ public class jogobeta{
 
             int dificuldade = 0;
 
-            System.out.println("Agora "+nomes[0]+" ,escolha a dificuldade");
-            System.out.println("");
-            System.out.println("1 - Facil");
-            System.out.println("2 - Medio");
-            System.out.println("3 - Dificil");
-            System.out.println("4 - Muito dificil");
-            System.out.println("0 - Voltar para o menu");
-
+            String texte = String.format(
+                "╔══════════════════════════════════════════════════════════════════════════════╗\n"+
+                "║                    Agora %s Escolha o nível de dificuldade                   ║\n"+
+                "╠══════════════════════════════════════════════════════════════════════════════╣\n"+
+                "║         1 - Fácil                                                            ║\n"+
+                "║         2 - Médio                                                            ║\n"+
+                "║         3 - Difícil                                                          ║\n"+
+                "║         4 - Muito Difícil                                                    ║\n"+
+                "╠══════════════════════════════════════════════════════════════════════════════╣\n"+
+                "║  0 - Voltar para o menu                                                      ║\n"+
+                "╚══════════════════════════════════════════════════════════════════════════════╝",nomes[0]);
+                coresbeta.coresDegradeText(texte);
             do{
             dificuldade = miau.nextInt();
             if(dificuldade>4 || dificuldade<0){

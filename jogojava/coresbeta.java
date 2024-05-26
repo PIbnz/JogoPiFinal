@@ -1,5 +1,6 @@
 package jogojava;
 import java.awt.Color;
+import java.io.IOException;
 import java.util.Random;
 import java. util.Scanner;
 
@@ -78,27 +79,27 @@ public static String[] generateGradient(String color1, String color2, int quanti
 }
 public static void Logo() {
     String[] titulo = {
-        "                                     ,---,              ,---,                        ,--.'|               \r\n",
-        "         .---.   ,---.    __  ,-.  ,---.'|            ,---.'|         ,--,           |  | :               \r\n",
-        "        /. ./|  '   ,'\\ ,' ,'/ /|  |   | :            |   | :       ,'_ /|           :  : '    .--.--.    \r\n",
-        "     .-'-. ' | /   /   |'  | |' |  |   | |            |   | |  .--. |  | :    ,---.  |  ' |   /  /    '   \r\n",
-        "    /___/ \\: |.   ; ,. :|  |   ,',--.__| |          ,--.__| |,'_ /| :  . |   /     \\ '  | |  |  :  /`./   \r\n",
-        " .-'.. '   ' .'   | |: :'  :  / /   ,'   |         /   ,'   ||  ' | |  . .  /    /  ||  | :  |  :  ;_     \r\n",
-        "/___/ \\:     ''   | .; :|  | ' .   '  /  |        .   '  /  ||  | ' |  | | .    ' / |'  : |__ \\  \\    `.  \r\n",
-        ".   \\  ' .\\   |   :    |;  : | '   ; |:  |        '   ; |:  |:  | : ;  ; | '   ;   /||  | '.'| `----.   \\ \r\n",
-        " \\   \\   ' \\ | \\   \\  / |  , ; |   | '/  '        |   | '/  ''  :  `--'   \\'   |  / |;  :    ;/  /`--'  / \r\n",
-        "  \\   \\  |--\"   `----'   ---'  |   :    :|        |   :    :|:  ,      .-./|   :    ||  ,   /'--'.     /  \r\n",
-        "   \\   \\ |                      \\   \\  /           \\   \\  /   `--`----'     \\   \\  /  ---`-'   `--'---'   \r\n",
-        "    '---\"                        `----'             `----'                   `----'                       ",
-        "    \n",
+        "                                         ,---,              ,---,                        ,--.'|               \r\n",
+        "             .---.   ,---.    __  ,-.  ,---.'|            ,---.'|         ,--,           |  | :               \r\n",
+        "            /. ./|  '   ,'\\ ,' ,'/ /|  |   | :            |   | :       ,'_ /|           :  : '    .--.--.    \r\n",
+        "         .-'-. ' | /   /   |'  | |' |  |   | |            |   | |  .--. |  | :    ,---.  |  ' |   /  /    '   \r\n",
+        "        /___/ \\: |.   ; ,. :|  |   ,',--.__| |          ,--.__| |,'_ /| :  . |   /     \\ '  | |  |  :  /`./   \r\n",
+        "     .-'.. '   ' .'   | |: :'  :  / /   ,'   |         /   ,'   ||  ' | |  . .  /    /  ||  | :  |  :  ;_     \r\n",
+        "    /___/ \\:     ''   | .; :|  | ' .   '  /  |        .   '  /  ||  | ' |  | | .    ' / |'  : |__ \\  \\    `.  \r\n",
+        "    .   \\  ' .\\   |   :    |;  : | '   ; |:  |        '   ; |:  |:  | : ;  ; | '   ;   /||  | '.'| `----.   \\ \r\n",
+        "     \\   \\   ' \\ | \\   \\  / |  , ; |   | '/  '        |   | '/  ''  :  `--'   \\'   |  / |;  :    ;/  /`--'  / \r\n",
+        "      \\   \\  |--\"   `----'   ---'  |   :    :|        |   :    :|:  ,      .-./|   :    ||  ,   /'--'.     /  \r\n",
+        "       \\   \\ |                      \\   \\  /           \\   \\  /   `--`----'     \\   \\  /  ---`-'   `--'---'   \r\n",
+        "        '---\"                        `----'             `----'                   `----'                       ",
+        "        \n",
         "    \n",
         "   \n",
         "    \n",
-        "                                    [selecione  ENTER para continuar]\n"        };
+        "                                  [selecione ENTER para continuar]\n"        };
     int quantidadeC = titulo.length;
 
     // Gera um degradê de cores
-    String[] colors = degradelogo("#7F00FF", "#FF0000", quantidadeC);
+    String[] colors = degradelogo("#FF1493", "#FFFF00", quantidadeC);
 
     // Imprime o logo linha por linha com o degradê de cores
     for (int i = 0; i < quantidadeC; i++) {
@@ -305,6 +306,476 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
 
     return degrade;
 }
+ public static void telaDeVitoria() {
+    sombeta.somVitoria1();
+        String[] titulo =  {
+            "                                                                \n",
+            "               \\                  ╔══════════════════════════════╗                 /                \n",
+            "                 ╔════════════════════════════════════════════════════════════════╗                 \n",   
+            "   ╔═════════════╩════════════════╝                              ╚════════════════╩═════════════╗   \n",
+            "  ╔╣                                                                                            ╠╗  \n",
+            "  ║║                             PARABÉNS, VOCÊ JOGOU BEM E GANHOU!                             ║║  \n",
+            "  ║║                         ─────────────────────────────────────────                          ║║  \n",               
+            "  ║║                                     OBRIGADO POR JOGAR!                                    ║║  \n",
+            "  ║║                                                                                            ║║  \n",                       
+            "  ║║                            VOCÊS QUEREM JOGAR NOVAMENTE? (S/N)                             ║║  \n",
+            "  ╚╣                                                                                            ╠╝  \n",
+            "   ╚═════════════╦════════════════╗                              ╔════════════════╦═════════════╝   \n",
+            "                 ╚════════════════════════════════════════════════════════════════╝                 \n",
+            "               /                  ╚══════════════════════════════╝                  \\                 \n",
+            "    \n",
+            "    \n",
+            "     \n",
+            "    \n",
+            "                             selecione S OU N e de ENTER para continuar..."
+           
+           
+          
+          
+        };
+          
+        int quantidadeC = titulo.length;      
+        String[] colors = ganahdor("#7F00FF", "#FF0000", quantidadeC);       
+        for (int i = 0; i < quantidadeC; i++) {
+            System.out.print(colors[i] + titulo[i]);
+            try {
+                Thread.sleep(150); 
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+     int frameMenu =100; 
+    int delay = 100;
+
+       
+        Thread animacao= new Thread(() -> {
+            for (int frame = 0; frame < frameMenu; frame++) {
+                
+                System.out.print("\u001B[" + quantidadeC + "A");
+              
+                for (int i = 0; i < quantidadeC; i++) {
+                    
+                    int colorIndex = (i + frame) % quantidadeC;
+                  
+                    System.out.print(colors[colorIndex] + titulo[i]);
+                }            
+                try {
+                  
+                    for (int i = 0; i < delay / 10; i++) {
+                        if (enterPressed) {
+                            enterPressed = false; 
+                            return; 
+                        }
+                        Thread.sleep(10);
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            // Reseta a cor após a animação
+            System.out.println("\u001B[0m");
+        });
+        animacao.start(); // Inicia a thread de animação
+
+        // Aguarda até que o usuário pressione Enter
+        aguardarEnter();
+
+        // Aguarda a thread de animação terminar
+        try {
+            animacao.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Apresenta o menu após o Enter
+        
+    }
+
+    // Função para gerar o degradê de cores
+    public static String[] ganahdor(String color1, String color2, int quanti) {
+        String[] degrade = new String[quanti];
+
+        Color comecotColor = Color.decode(color1);
+        Color fimColor = Color.decode(color2); 
+
+        // Calcula o incremento de cor para cada etapa
+        float corR = (float) (fimColor.getRed() - comecotColor.getRed()) / quanti;
+        float corG = (float) (fimColor.getGreen() - comecotColor.getGreen()) / quanti;
+        float corB = (float) (fimColor.getBlue() - comecotColor.getBlue()) / quanti;
+
+        // Gera as cores intermediárias para o degradê
+        for (int i = 0; i < quanti; i++) {
+            int r = comecotColor.getRed() + Math.round(corR * i);
+            int g = comecotColor.getGreen() + Math.round(corG * i);
+            int b = comecotColor.getBlue() + Math.round(corB * i);
+
+            degrade[i] = "\u001B[38;2;" + r + ";" + g + ";" + b + "m"; 
+        }
+
+        return degrade;
+    }
+    public static void nomeGanhador(String nome) {
+        String[][] alphabet = {
+            // A
+            {
+                "  █████╗  ",
+                " ██╔══██╗ ",
+                " ███████║ ",
+                " ██╔══██║ ",
+                " ██║  ██║ ",
+                " ╚═╝  ╚═╝ "
+            },
+            // B
+            {
+                " ██████╗  ",
+                " ██╔══██╗ ",
+                " ██████╔╝ ",
+                " ██╔══██╗ ",
+                " ██████╔╝ ",
+                " ╚═════╝  "
+            },
+            // C
+            {
+                "  ██████╗ ",
+                " ██╔════╝ ",
+                " ██║      ",
+                " ██║      ",
+                " ╚██████╗ ",
+                "  ╚═════╝ "
+            },
+            // D
+            {
+                " ██████╗  ",
+                " ██╔══██╗ ",
+                " ██║  ██║ ",
+                " ██║  ██║ ",
+                " ██████╔╝ ",
+                " ╚═════╝  "
+            },
+            // E
+            {
+                " ███████╗ ",
+                " ██╔════╝ ",
+                " ███████╗ ",
+                " ██╔════╝ ",
+                " ███████╗ ",
+                " ╚══════╝ "
+            },
+            // F
+            {
+                " ███████╗ ",
+                " ██╔════╝ ",
+                " ███████╗ ",
+                " ██╔════╝ ",
+                " ██║      ",
+                " ╚═╝      "
+            },
+            // G
+            {
+                "  ██████╗ ",
+                " ██╔════╝ ",
+                " ██║  ███╗",
+                " ██║   ██║",
+                " ╚██████╔╝",
+                "  ╚═════╝ "
+            },
+            // H
+            {
+                " ██╗  ██╗ ",
+                " ██║  ██║ ",
+                " ███████║ ",
+                " ██╔══██║ ",
+                " ██║  ██║ ",
+                " ╚═╝  ╚═╝ " 
+            },
+            // I
+            {
+                " ██╗ ",
+                " ██║ ",
+                " ██║ ",
+                " ██║ ",
+                " ██║ ",
+                " ╚═╝ "
+            },
+            // J
+            {
+                "     ██╗",
+                "     ██║",
+                "     ██║",
+                "██   ██║",
+                "╚█████╔╝",
+                " ╚════╝ "
+            },
+            // K
+            {
+                "██╗  ██╗",
+                "██║ ██╔╝",
+                "█████╔╝ ",
+                "██╔═██╗ ",
+                "██║  ██╗",
+                "╚═╝  ╚═╝"
+            },
+            // L
+            {
+                " ██╗      ",
+                " ██║      ",
+                " ██║      ",
+                " ██║      ",
+                " ███████╗ ",
+                " ╚══════╝ "
+            },
+            // M
+            {
+                "███╗   ███╗ ",
+                "████╗ ████║ ",
+                "██╔████╔██║ ",
+                "██║╚██╔╝██║ ",
+                "██║ ╚═╝ ██║ ",
+                "╚═╝     ╚═╝ "
+            },
+            // N
+            {
+                "███╗   ██╗",
+                "████╗  ██║",
+                "██╔██╗ ██║",
+                "██║╚██╗██║",
+                "██║ ╚████║",
+                "╚═╝  ╚═══╝"
+            },
+            // O
+            {
+                " ██████╗  ",
+                "██╔═══██╗ ",
+                "██║   ██║ ",
+                "██║   ██║ ",
+                "╚██████╔╝ ",
+                " ╚═════╝  "
+            },
+            // P
+            {
+                " ██████╗  ",
+                " ██╔══██╗ ",
+                " ██████╔╝ ",
+                " ██╔═══╝  ",
+                " ██║      ",
+                " ╚═╝      "
+            },
+            // Q
+            {
+                "  ██████╗ ",
+                " ██╔═══██╗",
+                " ██║   ██║",
+                " ██║▄▄ ██║",
+                " ╚██████╔╝",
+                "  ╚══▀▀═╝ "
+            },
+            // R
+            {
+                " ██████╗  ",
+                " ██╔══██╗ ",
+                " ██████╔╝ ",
+                " ██╔══██╗ ",
+                " ██║  ██║ ",
+                " ╚═╝  ╚═╝ "
+            },
+            // S
+            {
+                " ███████╗ ",
+                " ██╔════╝ ",
+                " ███████╗ ",
+                " ╚════██║ ",
+                " ███████║ ",
+                " ╚══════╝ "
+            },
+            // T
+            {
+                "████████╗ ",
+                "╚══██╔══╝ ",
+                "   ██║    ",
+                "   ██║    ",
+                "   ██║    ",
+                "   ╚═╝    "
+            },
+            // U
+            {
+                "██╗  ██╗  ",
+                "██║  ██║  ",
+                "██║  ██║  ",
+                "██║  ██║  ",
+                " █████╔╝  ",
+                "  ╚═══╝   "
+            },
+            // V
+            {
+                "██╗   ██╗ ",
+                "██║   ██║ ",
+                "██║   ██║ ",
+                "╚██╗ ██╔╝ ",
+                " ╚████╔╝  ",
+                "  ╚═══╝   "
+            },
+            // W
+            {
+                "██╗    ██╗",
+                "██║    ██║",
+                "██║ █╗ ██║",
+                "██║███╗██║",
+                "╚███╔███╔╝",
+                " ╚══╝╚══╝ "
+            },
+            // X
+            {
+                " ██╗  ██╗ ",
+                " ╚██╗██╔╝ ",
+                "  ╚███╔╝  ",
+                "  ██╔██╗  ",
+                " ██╔╝ ██╗ ",
+                " ╚═╝  ╚═╝ "
+            },
+            // Y
+            {
+                " ██╗   ██╗",
+                " ╚██╗ ██╔╝",
+                "  ╚████╔╝ ",
+                "   ╚██╔╝  ",
+                "    ██║   ",
+                "    ╚═╝   "
+            },
+            // Z
+            {
+                "███████╗ ",
+                "╚══███╔╝ ",
+                "  ███╔╝  ",
+                " ███╔╝   ",
+                "███████╗ ",
+                "╚══════╝ "
+            },
+            // Espaço
+            {
+                " ",
+                " ",
+                " ",
+                " ",
+                " ",
+                " "
+            }
+        };
+
+        nome = nome.toUpperCase();
+
+        
+        int alturaLetra = alphabet[0].length;
+        int larguraLetra = alphabet[0][0].length();
+        int larguraNome = nome.length() * larguraLetra + (nome.length() - 1); 
+        int larguraRetangulo = larguraNome + 4; 
+        int alturaRetangulo = alturaLetra + 2; 
+
+       
+        String[][] tabela = new String[alturaRetangulo][larguraRetangulo];
+
+        
+        for (int i = 0; i < alturaRetangulo; i++) {
+            for (int j = 0; j < larguraRetangulo; j++) {
+                if (i == 0 && j == 0) {
+                    tabela[i][j] = "╔";
+                } else if (i == 0 && j == larguraRetangulo - 1) {
+                    tabela[i][j] = "╗";
+                } else if (i == alturaRetangulo - 1 && j == 0) {
+                    tabela[i][j] = "╚";
+                } else if (i == alturaRetangulo - 1 && j == larguraRetangulo - 1) {
+                    tabela[i][j] = "╝";
+                } else if (i == 0 || i == alturaRetangulo - 1) {
+                    tabela[i][j] = "═";
+                } else if (j == 0 || j == larguraRetangulo - 1) {
+                    tabela[i][j] = "║";
+                } else {
+                    tabela[i][j] = " ";
+                }
+            }
+        }
+
+        
+        letras(tabela, nome, 1, 2, alphabet);
+
+        
+        int quantidadeC = tabela.length;
+        String[] colors = vitoriaFim("#7F00FF", "#FF0000", quantidadeC);
+
+       
+        for (int i = 0; i < quantidadeC; i++) {
+            System.out.print(colors[i]);
+            for (int j = 0; j < tabela[i].length; j++) {
+                System.out.print(tabela[i][j]);
+            }
+            System.out.println();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+    
+        }
+        
+        
+        System.out.println("\u001B[0m");
+    }
+
+    public static void letras(String[][] tabela, String nome, int linha, int coluna, String[][] alphabet) {
+        nome = nome.toUpperCase();
+
+        for (int i = 0; i < 6; i++) { 
+            for (int j = 0; j < nome.length(); j++) {
+                char letra = nome.charAt(j);
+                if (letra >= 'A' && letra <= 'Z') {
+                    String linhaASCII = alphabet[letra - 'A'][i];
+                    for (int l = 0; l < linhaASCII.length(); l++) {
+                        tabela[linha + i][coluna + j * (linhaASCII.length() + 1) + l] = String.valueOf(linhaASCII.charAt(l));
+                    }
+                }
+            }
+        }
+    }
+
+    // Função para gerar o degradê de cores
+    public static String[] vitoriaFim(String color1, String color2, int quanti) {
+        String[] degrade = new String[quanti];
+
+        Color comecotColor = Color.decode(color1); 
+        Color fimColor = Color.decode(color2);
+
+        // Calcula o incremento de cor para cada etapa
+        float corR = (float) (fimColor.getRed() - comecotColor.getRed()) / quanti;
+        float corG = (float) (fimColor.getGreen() - comecotColor.getGreen()) / quanti;
+        float corB = (float) (fimColor.getBlue() - comecotColor.getBlue()) / quanti;
+
+        for (int i = 0; i < quanti; i++) {
+            int r = comecotColor.getRed() + Math.round(corR * i);
+            int g = comecotColor.getGreen() + Math.round(corG * i);
+            int b = comecotColor.getBlue() + Math.round(corB * i);
+
+            degrade[i] = "\u001B[38;2;" + r + ";" + g + ";" + b + "m"; 
+        }
+
+        return degrade;
+    }
+
+   
+    
+    public static void clearScreen() {
+        try {
+            final String os = System.getProperty("os.name");
+            if (os.contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                Runtime.getRuntime().exec("clear");
+            }
+        } catch (final InterruptedException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 
 

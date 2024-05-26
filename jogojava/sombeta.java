@@ -18,7 +18,7 @@ public static class GerenciadorSom {
             if (!somMenuTocando) {
                 try {
                     Thread.sleep(1560);
-                    File file = new File("JogoPiFinal/sons/espera.wav");
+                    File file = new File("JogoPiFinal/sons/domJogoInicio.wav");
                     clipMenu = AudioSystem.getClip();
                     clipMenu.open(AudioSystem.getAudioInputStream(file));
                     clipMenu.loop(Clip.LOOP_CONTINUOUSLY);
@@ -102,17 +102,37 @@ public static class GerenciadorSom {
             ex.printStackTrace();
         }
     }
-    public static  void somjogo() {
-       
-        try {
-            File file = new File("JogoPiFinal/sons/somdojogoD.wav");
-            clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(file));
-            clip.start();
-        } catch (Exception ex) {
-            ex.printStackTrace();
+    public static class somJogoPartida {
+        private static Clip clipMenu;
+        private static boolean somMenuTocando = false;
+
+        public static void iniciarMuisca() {
+            if (!somMenuTocando) {
+                try {
+                    
+                    File file = new File("JogoPiFinal/sons/somdojogoD.wav");
+                    clipMenu = AudioSystem.getClip();
+                    clipMenu.open(AudioSystem.getAudioInputStream(file));
+                    clipMenu.loop(Clip.LOOP_CONTINUOUSLY);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                somMenuTocando = true;
+            }
+        }
+
+        public static void pararSomPartida() {
+            if (somMenuTocando) {
+                if (clipMenu != null) {
+                    clipMenu.stop();
+                    clipMenu.flush();
+                    clipMenu.close();
+                }
+                somMenuTocando = false;
+            }
         }
     }
+   
    
    
     public static  void toqueintre() {
@@ -148,6 +168,8 @@ public static class GerenciadorSom {
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
+            clip.close();
+           
            
             
         } catch (Exception ex) {
@@ -161,6 +183,7 @@ public static class GerenciadorSom {
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
+            clip.close();
            
             
         } catch (Exception ex) {
@@ -174,6 +197,38 @@ public static class GerenciadorSom {
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
+            clip.close();
+           
+           
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public static  void somVitoria1() {
+        // Stop any current sound before playing a new one
+        try {
+            File file = new File("JogoPiFinal/sons/somvitoria1.wav");
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.start();
+            clip.close();
+           
+           
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public static  void somVitoria() {
+        // Stop any current sound before playing a new one
+        try {
+            File file = new File("JogoPiFinal/sons/somVitoria2.wav");
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.start();
+            clip.close();
+           
            
             
         } catch (Exception ex) {
