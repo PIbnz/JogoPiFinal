@@ -344,7 +344,7 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
                 e.printStackTrace();
             }
         }
-     int frameMenu =100; 
+     int frameMenu =1000; 
     int delay = 100;
 
        
@@ -416,6 +416,7 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
         return degrade;
     }
     public static void nomeGanhador(String nome) {
+        clearScreen();
         String[][] alphabet = {
             // A
             {

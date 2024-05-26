@@ -464,7 +464,7 @@ public class jogobeta{
 
             String texte = String.format(
                 "╔══════════════════════════════════════════════════════════════════════════════╗\n"+
-                "║                    Agora %s Escolha o nível de dificuldade                   ║\n"+
+                "                     Agora %s Escolha o nível de dificuldade                   \n"+
                 "╠══════════════════════════════════════════════════════════════════════════════╣\n"+
                 "║         1 - Fácil                                                            ║\n"+
                 "║         2 - Médio                                                            ║\n"+
@@ -472,12 +472,19 @@ public class jogobeta{
                 "║         4 - Muito Difícil                                                    ║\n"+
                 "╠══════════════════════════════════════════════════════════════════════════════╣\n"+
                 "║  0 - Voltar para o menu                                                      ║\n"+
-                "╚══════════════════════════════════════════════════════════════════════════════╝",nomes[0]);
+                "╚══════════════════════════════════════════════════════════════════════════════╝\n",nomes[0]);
                 coresbeta.coresDegradeText(texte);
             do{
             dificuldade = miau.nextInt();
             if(dificuldade>4 || dificuldade<0){
-                System.out.println("Valor não reconhecido, insira um valor valido");
+                sombeta.erroSom();
+                String[] info = {"╔═════════════════════════════════════════════════════╗\n",
+                                 "║                                                     ║\n",
+                                 "║    Valor não reconhecido, insira um valor valido    ║\n",
+                                 "║                                                     ║\n",
+                                 "╚═════════════════════════════════════════════════════╝\n"};
+                coresbeta.corvermelho(info);
+                
             }    
             }while(dificuldade>4 || dificuldade<0);
 
@@ -606,13 +613,7 @@ public class jogobeta{
                 System.out.print(transformText);
     
         }
-        public static void aguardarEnter() {
-            System.out.println("Pressione Enter para continuar...");
-            
-            miau.nextLine();
-            sombeta.toquedeintre(); // Aguarda até que o usuário pressione Enter
-        }
-       
+      
     
        
         //final alinhamento
