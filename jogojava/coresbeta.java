@@ -768,7 +768,7 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
             if (os.contains("Windows")) {
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             } else {
-                Runtime.getRuntime().exec("clear");
+                Runtime.getRuntime();
             }
         } catch (final InterruptedException | IOException e) {
             e.printStackTrace();
