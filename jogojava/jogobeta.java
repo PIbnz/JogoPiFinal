@@ -18,8 +18,6 @@ public class jogobeta{
         tocar = new Thread(() -> sombeta. GerenciadorSom.iniciarSomMenu()); // Inicialização do Thread
         tocar.start();
        
-       
-       
         Menu();
         
         
@@ -129,6 +127,8 @@ public class jogobeta{
         embaralhar(palavras);
       
         Jogadas(stringChute, palavras, nomes);
+        coresbeta.nomeGanhador(nomes[vencedor]);
+        coresbeta.telaDeVitoria();
         
         
 
@@ -324,13 +324,11 @@ public class jogobeta{
         String tentativa = "";
         boolean venceu = false;
         totalR = 0;
-        for(int cont = 0;cont<jogadoresPresentes;cont++){
-            inicializandoStringsChute(jogadoresPresentes,palavrasO , Chute, cont);
-        }
+        
         do{
             for(int cont = 0;cont<jogadoresPresentes;cont++){
                 
-
+                inicializandoStringsChute(jogadoresPresentes,palavrasO , Chute, cont);
                 
                     align(Chute[cont]);
                 
@@ -614,6 +612,16 @@ public class jogobeta{
             else
                 System.out.print(transformText);
     
+        }
+
+        public static void voltarMenu(){
+            String resp = miau.next();
+            if(resp.equalsIgnoreCase("s")){
+                Menu();
+                coresbeta.clearScreen();
+            }else{
+                System.out.println("Obrigado por jogar");
+            }
         }
       
     

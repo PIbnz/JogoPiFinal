@@ -401,7 +401,7 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
         animacao.start(); // Inicia a thread de animação
 
         // Aguarda até que o usuário pressione Enter
-        aguardarEnter();
+        jogobeta.voltarMenu();
 
         // Aguarda a thread de animação terminar
         try {
