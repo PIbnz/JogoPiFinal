@@ -11,6 +11,8 @@ public class jogobeta{
     public static int globalWidth = 45;
     public static Thread tocar; // Declaração do Thread, mas sem inicialização
     public static String[] palavraSingle = new String[1];
+    public static int vencedor = 0;
+    public static int totalR = 0;
 
     public static void main(String[] args) throws Exception {
         tocar = new Thread(() -> sombeta. GerenciadorSom.iniciarSomMenu()); // Inicialização do Thread
@@ -98,6 +100,7 @@ public class jogobeta{
     }
 
     public static void SinglePlayer(){
+        jogadoresPresentes = 1;
 
          String[] nomes = new String[jogadoresPresentes];
          String[] stringChute = new String[jogadoresPresentes];
@@ -105,7 +108,9 @@ public class jogobeta{
          Nomes(nomes);
          dificuldade(nomes);
          Jogadas(stringChute, palavraSingle, nomes);
-        
+         Rank(jogadoresPresentes, totalR);
+         coresbeta.nomeGanhador(nomes[vencedor]);
+         coresbeta.telaDeVitoria();
 
     }
 
@@ -303,10 +308,7 @@ public class jogobeta{
     }
    
     
-    public static void music(){
-         
-       
-    }
+    
     public static void Jogadas(String[] Chute,String[] palavrasO,String[] nomes){
         
         sombeta.GerenciadorSom.pararSomMenu();
@@ -316,19 +318,17 @@ public class jogobeta{
         
         String tentativa = "";
         boolean venceu = false;
-        int primJ = 0;
+        totalR = 0;
         for(int cont = 0;cont<jogadoresPresentes;cont++){
             inicializandoStringsChute(jogadoresPresentes,palavrasO , Chute, cont);
         }
         do{
             for(int cont = 0;cont<jogadoresPresentes;cont++){
-            
+                
 
-                if(primJ<jogadoresPresentes){
+                
                     align(Chute[cont]);
-                }else{
-                    System.out.println(Chute[cont]);
-                }
+                
                 
                 String texte = String.format(
                     "              ╔════════════════════════════════════════════════════════════╗\n" +
@@ -361,9 +361,10 @@ public class jogobeta{
                 
                 
                 if(venceu == true){
+                    vencedor = cont;
                     break;
                 }
-                primJ++;
+                totalR++;
             }
             
         } while(!venceu);
@@ -498,6 +499,60 @@ public class jogobeta{
             }else{
             palavraSingle[0] = muitodificil[palavra];    
             }
+        }
+
+        public static String Rank(int dificuldade, int RodadasT){
+            String RankF = "";
+            if(dificuldade == 1){
+                if(RodadasT<=3){
+                    RankF = "Mestre";
+                }else if(RodadasT>3 && RodadasT<=5){
+                    RankF = "Senior";
+                    }else if(RodadasT>5 && RodadasT<=8){
+                        RankF = "Aprendiz";
+                    }else if(RodadasT>8 && RodadasT<=11){
+                        RankF = "Novato";
+                    }else{
+                        RankF = "Fracasso";
+                    }
+            }else if(dificuldade== 2){
+                if(RodadasT<=4){
+                    RankF = "Mestre";
+                }else if(RodadasT>4 && RodadasT<=6){
+                    RankF = "Senior";
+                    }else if(RodadasT>6 && RodadasT<=9){
+                        RankF = "Aprendiz";
+                    }else if(RodadasT>9 && RodadasT<=12){
+                        RankF = "Novato";
+                    }else{
+                        RankF = "Fracasso";
+                    }
+            }else if(dificuldade==3){
+                if(RodadasT<=5){
+                    RankF = "Mestre";
+                }else if(RodadasT>5 && RodadasT<=7){
+                    RankF = "Senior";
+                    }else if(RodadasT>7 && RodadasT<=10){
+                        RankF = "Aprendiz";
+                    }else if(RodadasT>10 && RodadasT<=13){
+                        RankF = "Novato";
+                    }else{
+                        RankF = "Fracasso";
+                    }
+            }else{
+                if(RodadasT<=6){
+                    RankF = "Mestre";
+                }else if(RodadasT>6 && RodadasT<=8){
+                    RankF = "Senior";
+                    }else if(RodadasT>8 && RodadasT<=11){
+                        RankF = "Aprendiz";
+                    }else if(RodadasT>11 && RodadasT<=14){
+                        RankF = "Novato";
+                    }else{
+                        RankF = "Fracasso";
+                    }
+            }
+            return RankF;
         }
     
         public static String substituirCharacter (String str, int index, char ch){
