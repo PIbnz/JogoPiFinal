@@ -203,7 +203,7 @@ public static void corvermelho(String[] titulo) {
     String[] colors =new String[titulo.length];
    
     // Cores de degradê, color 1 e onde a cor começa e o color2 e onde a cor termina
-     colors = generateGradient("#FF2400", "#FF0000", quantidadeC );
+     colors = cdegrade("#FF2400", "#FF0000", quantidadeC );
     
       
 
@@ -241,6 +241,27 @@ public static String[] cdegrade(String color1, String color2, int quanti) {
 
     return degrade;
 }
+public static void coresDegradeTextVermelho(String text) {
+                         
+    int quantidadeC = text.length();
+    
+    String[] colors;
+
+    // Seleção das cores para o degradê
+    colors = textDegrade("#FF2400", "#FF0000", quantidadeC );
+
+    // Imprimir o texto com degradê
+    for (int i = 0; i < quantidadeC; i++) {
+        char c = text.charAt(i);
+        if (c != '\n' && c != ' ') {
+            System.out.print(colors[i % colors.length] + c + "\u001B[0m");
+        } else {
+            System.out.print(c);
+        }
+    }
+    System.out.print("\u001B[0m"); // Resetar a cor
+}
+
 //aqui e o degrade dos printf 
 public static void coresDegradeText(String text) {
                          
@@ -306,6 +327,7 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
 
     return degrade;
 }
+
  public static void telaDeVitoria() {
     sombeta.somVitoria1();
         String[] titulo =  {
@@ -416,7 +438,10 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
         return degrade;
     }
     public static void nomeGanhador(String nome) {
-        clearScreen();
+         clearScreen();
+        sombeta.somJogoPartida.pararSomPartida();
+        sombeta.somVitoria();
+       
         String[][] alphabet = {
             // A
             {

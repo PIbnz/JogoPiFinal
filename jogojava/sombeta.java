@@ -168,7 +168,7 @@ public static class GerenciadorSom {
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
-            clip.close();
+            
            
            
             
@@ -183,7 +183,7 @@ public static class GerenciadorSom {
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
-            clip.close();
+           
            
             
         } catch (Exception ex) {
@@ -197,7 +197,7 @@ public static class GerenciadorSom {
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
-            clip.close();
+            
            
            
             
@@ -212,7 +212,7 @@ public static class GerenciadorSom {
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
-            clip.close();
+          
            
            
             
@@ -227,7 +227,7 @@ public static class GerenciadorSom {
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.start();
-            clip.close();
+            
            
            
             

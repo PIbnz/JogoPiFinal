@@ -334,7 +334,7 @@ public class jogobeta{
                 
                     align(Chute[cont]);
                 
-                
+                sombeta.acertoJogada();
                 String texte = String.format(                                      
                   
                     "                               ╔═════════╝        ╚═════════╗                \n"+
@@ -347,9 +347,11 @@ public class jogobeta{
                     ,nomes[cont]
                 );                             
                   coresbeta.coresDegradeText(texte);
+                  
                 do{
                 tentativa = miau.next();
                 if(tentativa.length() != Chute[cont].length()){
+                    sombeta.toqueErro();
                     String texte1 = String.format(
                         "                              ╔═════════╝        ╚═════════╗   \n"+
                         "              ╔════════════════════════════════════════════════════════════╗\n" +
@@ -358,9 +360,9 @@ public class jogobeta{
                         "             ╚╗                                                            ╔╝\n" +
                         "              ╚════════════════════════════════════════════════════════════╝\n"+
                         "                              ╚═════════╗        ╔═════════╝              \n"
-                        ,palavrasO[cont].length()
-                    );
-                    coresbeta.coresDegradeText(texte1);
+                        ,palavrasO[cont].length() );
+                   
+                        coresbeta.coresDegradeTextVermelho(texte1);
                 }
                 }while(tentativa.length() != Chute[cont].length());
                 
@@ -441,7 +443,7 @@ public class jogobeta{
                   
                 }else{
                     escrever(tent.charAt(i), "cinza");
-                    sombeta.erroSom();
+                   
                 }
                 if(i == (orig[jogadorDaVez].length())){
                 }
