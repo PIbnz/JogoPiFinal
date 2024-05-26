@@ -106,8 +106,9 @@ public class jogobeta{
          Nomes(nomes);
          dificuldade(nomes);
          Jogadas(stringChute, palavraSingle, nomes);
-         Rank(jogadoresPresentes, totalR);
+         
          coresbeta.nomeGanhador(nomes[vencedor]);
+         coresbeta.nomeGanhador(Rank(jogadoresPresentes, totalR));
          coresbeta.telaDeVitoria();
 
     }
@@ -504,10 +505,10 @@ public class jogobeta{
             int palavra = mew.nextInt(30);
 
             
-            String[] facil = new String[] {"bola","paz","não","mito","viés","rude","vil","sob","mal","ira","alvo","pose","ágil","tese","hera","azul","réu","mim","frio","dor","eis","voz","voga","arte","asco","rito","tela","jus","asa","rir"};
-            String[] medio = new String[] {"assim","sobre","poder","moral","desde","justo","quiçá","inato","sonho","anexo","fútil","casal", "genro","ardil","coser","genro","sendo","xibiu","comun","denso","mesmo","vulgo","jeito","todos", "louco","apraz","cunho","pifio","certo","visar"};
+            String[] facil = new String[] {"bola","paz","nao","mito","vies","rude","vil","sob","mal","ira","alvo","pose","agil","tese","hera","azul","reu","mim","frio","dor","eis","voz","voga","arte","asco","rito","tela","jus","asa","rir"};
+            String[] medio = new String[] {"assim","sobre","poder","moral","desde","justo","quiça","inato","sonho","anexo","futil","casal", "genro","ardil","coser","genro","sendo","xibiu","comun","denso","mesmo","vulgo","jeito","todos", "louco","apraz","cunho","pifio","certo","visar"};
             String[] dificil = new String[] {"empatia","exceção","inferir","hostil","legado","anseio","adorno","infame","aferir","astuto","solene","sucesso","emergir", "trivial", "deboche", "ensejo", "formal", "outrem", "dispor", "parcial", "piedade","conciso","padecer","eficaz","alçada", "modesto", "bizarro","mulher","desejo","buscar"};
-            String[] muitodificil = new String[] {"genocida","prudente","iminente","deferido","abstrato","invasivo","reiterar","talarico","devaneio","relativo","conserto","fomentar","analogia","ativista","destarte","alicerce","despeito","proceder","portanto","primazia","sucumbir","consiste","demagogo","distinto","epifania","resoluto","problema","maestria","obetivo","insípido"};
+            String[] muitodificil = new String[] {"genocida","prudente","iminente","deferido","abstrato","invasivo","reiterar","talarico","devaneio","relativo","conserto","fomentar","analogia","ativista","destarte","alicerce","despeito","proceder","portanto","primazia","sucumbir","consiste","demagogo","distinto","epifania","resoluto","problema","maestria","obetivo","insipido"};
 
             if(dificuldade == 1){
             palavraSingle[0] = facil[palavra];
