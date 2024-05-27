@@ -405,7 +405,7 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
         sombeta.somJogoPartida.pararSomPartida();
         sombeta.somVitoria();
        
-        String[][] alphabet = {
+        String[][] alfabeto = {
             // A
             {
                 "  █████╗  ",
@@ -654,8 +654,8 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
         nome = nome.toUpperCase();
 
         
-        int alturaLetra = alphabet[0].length;
-        int larguraLetra = alphabet[0][0].length();
+        int alturaLetra = alfabeto[0].length;
+        int larguraLetra = alfabeto[0][0].length();
         int larguraNome = nome.length() * larguraLetra + (nome.length() - 1); 
         int larguraRetangulo = larguraNome + 4; 
         int alturaRetangulo = alturaLetra + 2; 
@@ -685,7 +685,7 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
         }
 
         
-        letras(tabela, nome, 1, 2, alphabet);
+        letras(tabela, nome, 1, 2, alfabeto);
 
         
         int quantidadeC = tabela.length;
@@ -713,7 +713,7 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
          
        
        
-        String[][] alphabet = {
+        String[][] alfabetoRank = {
             // A
             {
                 "  █████╗  ",
@@ -962,8 +962,8 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
         nome = nome.toUpperCase();
 
         
-        int alturaLetra = alphabet[0].length;
-        int larguraLetra = alphabet[0][0].length();
+        int alturaLetra = alfabetoRank[0].length;
+        int larguraLetra = alfabetoRank[0][0].length();
         int larguraNome = nome.length() * larguraLetra + (nome.length() - 1); 
         int larguraRetangulo = larguraNome + 4; 
         int alturaRetangulo = alturaLetra + 2; 
@@ -993,7 +993,7 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
         }
 
         
-        letras(tabela, nome, 1, 2, alphabet);
+        letras(tabela, nome, 1, 2, alfabetoRank);
 
         
         int quantidadeC = tabela.length;

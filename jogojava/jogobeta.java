@@ -19,12 +19,7 @@ public class jogobeta{
        
         Menu();
         
-        
-    
-    }
-    
-    
-    
+    } 
 
     public static void Menu(){
         tocar = new Thread(() -> sombeta. GerenciadorSom.iniciarSomMenu()); // Inicialização do Thread
