@@ -15,8 +15,7 @@ public class jogobeta{
     public static int totalR = 0;
 
     public static void main(String[] args) throws Exception {
-        tocar = new Thread(() -> sombeta. GerenciadorSom.iniciarSomMenu()); // Inicialização do Thread
-        tocar.start();
+       
        
         Menu();
         
@@ -28,7 +27,8 @@ public class jogobeta{
     
 
     public static void Menu(){
-         
+        tocar = new Thread(() -> sombeta. GerenciadorSom.iniciarSomMenu()); // Inicialização do Thread
+        tocar.start();
         
          apagar();
 
@@ -87,10 +87,28 @@ public class jogobeta{
                 Regras();
                 break;
             case 0:
-                System.out.println("Muito obrigado por jogar até da proxima vez");
+                String []obrigado={ "                               ╔═════════╝        ╚═════════╗                \n"+
+                                    "              ╔════════════════════════════════════════════════════════════╗\n" +
+                                    "             ╔╝                                                            ╚╗\n" +
+                                    "                         Muito obrigado por jogar até da proxima vez                      \n" +
+                                    "             ╚╗                                                            ╔╝\n" +
+                                    "              ╚════════════════════════════════════════════════════════════╝\n"+
+                                    "                               ╚═════════╗        ╔═════════╝              \n"};
+                                    coresbeta.coresDegrade(obrigado);
+               
                 break;
             default:
-            System.out.println("Comando não reconhecido voltando ao menu");
+            String []burro={
+                "                              ╔═════════╝        ╚═════════╗   \n"+
+                "              ╔════════════════════════════════════════════════════════════╗\n" +
+                "             ╔╝                                                            ╚╗\n" +
+                "                       Porfavor, insira uma palavra com %d letras            \n" +
+                "             ╚╗                                                            ╔╝\n" +
+                "              ╚════════════════════════════════════════════════════════════╝\n"+
+                "                              ╚═════════╗        ╔═════════╝              \n"};
+                
+                coresbeta.corvermelho(burro);
+           
                 Menu();
                 break;
         }
@@ -108,7 +126,8 @@ public class jogobeta{
          Jogadas(stringChute, palavraSingle, nomes);
          
          coresbeta.nomeGanhador(nomes[vencedor]);
-         coresbeta.nomeGanhador(Rank(jogadoresPresentes, totalR));
+      
+         coresbeta.nomeDoRank(Rank(jogadoresPresentes, totalR));
          coresbeta.telaDeVitoria();
 
     }

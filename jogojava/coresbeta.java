@@ -304,11 +304,11 @@ public static void coresDegradeText(String text) {
 }
 
 
-// Função para gerar um degradê entre duas cores em um determinado número de etapas
+
 public static String[] textDegrade(String color1, String color2, int quanti) {
     String[] degrade = new String[quanti];
 
-    Color comecotColor = Color.decode(color1);// Color.decode tranfoema o "#FFA500" em cor no java
+    Color comecotColor = Color.decode(color1);
     Color fimColor = Color.decode(color2);
 
     // Calcula o incremento de cor para cada etapa
@@ -316,7 +316,7 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
     float corG = (float) (fimColor.getGreen() - comecotColor.getGreen()) / quanti;
     float corB = (float) (fimColor.getBlue() - comecotColor.getBlue()) /quanti;
 
-    // Gera as cores intermediárias, fazendo o degrade das cores
+    
     for (int i = 0; i < quanti; i++) {
         int r = comecotColor.getRed() + Math.round(corR * i);
         int g = comecotColor.getGreen() + Math.round(corG * i);
@@ -329,28 +329,35 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
 }
 
  public static void telaDeVitoria() {
-    sombeta.somVitoria1();
+    try {
+        Thread.sleep(2000); // Aguarda 150 milissegundos entre cada linha
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    clearScreen();
         String[] titulo =  {
             "                                                                \n",
-            "               \\                  ╔══════════════════════════════╗                 /                \n",
-            "                 ╔════════════════════════════════════════════════════════════════╗                 \n",   
-            "   ╔═════════════╩════════════════╝                              ╚════════════════╩═════════════╗   \n",
-            "  ╔╣                                                                                            ╠╗  \n",
-            "  ║║                             PARABÉNS, VOCÊ JOGOU BEM E GANHOU!                             ║║  \n",
-            "  ║║                         ─────────────────────────────────────────                          ║║  \n",               
-            "  ║║                                     OBRIGADO POR JOGAR!                                    ║║  \n",
-            "  ║║                                                                                            ║║  \n",                       
-            "  ║║                            VOCÊS QUEREM JOGAR NOVAMENTE? (S/N)                             ║║  \n",
-            "  ╚╣                                                                                            ╠╝  \n",
-            "   ╚═════════════╦════════════════╗                              ╔════════════════╦═════════════╝   \n",
-            "                 ╚════════════════════════════════════════════════════════════════╝                 \n",
-            "               /                  ╚══════════════════════════════╝                  \\                 \n",
+            "                                                                \n",
+            "               \\                  ╔══════════════════════════════╗                 /             \r\n",
+            "                 ╔════════════════════════════════════════════════════════════════╗                 \r\n",   
+            "   ╔═════════════╩════════════════╝                              ╚════════════════╩═════════════╗ \r\n",
+            "  ╔╣                                                                                            ╠╗\r\n",
+            "  ║║                             PARABÉNS, VOCÊ JOGOU BEM E GANHOU!                             ║║\r\n",
+            "  ║║                         ─────────────────────────────────────────                          ║║ \r\n",               
+            "  ║║                                     OBRIGADO POR JOGAR!                                    ║║\r\n",
+            "  ║║                                                                                            ║║ \r\n",                       
+            "  ║║                            VOCÊS QUEREM JOGAR NOVAMENTE? (S/N)                             ║║  \r\n",
+            "  ╚╣                                                                                            ╠╝ \r\n",
+            "   ╚═════════════╦════════════════╗                              ╔════════════════╦═════════════╝ \r\n",
+            "                 ╚════════════════════════════════════════════════════════════════╝             \r\n",
+            "               /                  ╚══════════════════════════════╝                  \\          \r\n",
             "    \n",
             "    \n",
-            "     \n",
+            "    \n",
             "    \n",
             "                             selecione S OU N e de ENTER para continuar..."
            
+            
            
           
           
@@ -401,8 +408,8 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
         animacao.start(); // Inicia a thread de animação
 
         // Aguarda até que o usuário pressione Enter
-        jogobeta.voltarMenu();
-
+        aguardarEnter();
+        
         // Aguarda a thread de animação terminar
         try {
             animacao.join();
@@ -411,7 +418,7 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
         }
 
         // Apresenta o menu após o Enter
-        
+        jogobeta.Menu();
     }
 
     // Função para gerar o degradê de cores
@@ -441,6 +448,314 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
          clearScreen();
         sombeta.somJogoPartida.pararSomPartida();
         sombeta.somVitoria();
+       
+        String[][] alphabet = {
+            // A
+            {
+                "  █████╗  ",
+                " ██╔══██╗ ",
+                " ███████║ ",
+                " ██╔══██║ ",
+                " ██║  ██║ ",
+                " ╚═╝  ╚═╝ "
+            },
+            // B
+            {
+                " ██████╗  ",
+                " ██╔══██╗ ",
+                " ██████╔╝ ",
+                " ██╔══██╗ ",
+                " ██████╔╝ ",
+                " ╚═════╝  "
+            },
+            // C
+            {
+                "  ██████╗ ",
+                " ██╔════╝ ",
+                " ██║      ",
+                " ██║      ",
+                " ╚██████╗ ",
+                "  ╚═════╝ "
+            },
+            // D
+            {
+                " ██████╗  ",
+                " ██╔══██╗ ",
+                " ██║  ██║ ",
+                " ██║  ██║ ",
+                " ██████╔╝ ",
+                " ╚═════╝  "
+            },
+            // E
+            {
+                " ███████╗ ",
+                " ██╔════╝ ",
+                " ███████╗ ",
+                " ██╔════╝ ",
+                " ███████╗ ",
+                " ╚══════╝ "
+            },
+            // F
+            {
+                " ███████╗ ",
+                " ██╔════╝ ",
+                " ███████╗ ",
+                " ██╔════╝ ",
+                " ██║      ",
+                " ╚═╝      "
+            },
+            // G
+            {
+                "  ██████╗ ",
+                " ██╔════╝ ",
+                " ██║  ███╗",
+                " ██║   ██║",
+                " ╚██████╔╝",
+                "  ╚═════╝ "
+            },
+            // H
+            {
+                " ██╗  ██╗ ",
+                " ██║  ██║ ",
+                " ███████║ ",
+                " ██╔══██║ ",
+                " ██║  ██║ ",
+                " ╚═╝  ╚═╝ " 
+            },
+            // I
+            {
+                "  ██╗ ",
+                "  ██║ ",
+                "  ██║ ",
+                "  ██║ ",
+                "  ██║ ",
+                "  ╚═╝ "
+            },
+            // J
+            {
+                "     ██╗",
+                "     ██║",
+                "     ██║",
+                "██   ██║",
+                "╚█████╔╝",
+                " ╚════╝ "
+            },
+            // K
+            {
+                "██╗  ██╗",
+                "██║ ██╔╝",
+                "█████╔╝ ",
+                "██╔═██╗ ",
+                "██║  ██╗",
+                "╚═╝  ╚═╝"
+            },
+            // L
+            {
+                " ██╗      ",
+                " ██║      ",
+                " ██║      ",
+                " ██║      ",
+                " ███████╗ ",
+                " ╚══════╝ "
+            },
+            // M
+            {
+                "███╗   ███╗ ",
+                "████╗ ████║ ",
+                "██╔████╔██║ ",
+                "██║╚██╔╝██║ ",
+                "██║ ╚═╝ ██║ ",
+                "╚═╝     ╚═╝ "
+            },
+            // N
+            {
+                "███╗   ██╗",
+                "████╗  ██║",
+                "██╔██╗ ██║",
+                "██║╚██╗██║",
+                "██║ ╚████║",
+                "╚═╝  ╚═══╝"
+            },
+            // O
+            {
+                " ██████╗  ",
+                "██╔═══██╗ ",
+                "██║   ██║ ",
+                "██║   ██║ ",
+                "╚██████╔╝ ",
+                " ╚═════╝  "
+            },
+            // P
+            {
+                " ██████╗  ",
+                " ██╔══██╗ ",
+                " ██████╔╝ ",
+                " ██╔═══╝  ",
+                " ██║      ",
+                " ╚═╝      "
+            },
+            // Q
+            {
+                "  ██████╗ ",
+                " ██╔═══██╗",
+                " ██║   ██║",
+                " ██║▄▄ ██║",
+                " ╚██████╔╝",
+                "  ╚══▀▀═╝ "
+            },
+            // R
+            {
+                " ██████╗  ",
+                " ██╔══██╗ ",
+                " ██████╔╝ ",
+                " ██╔══██╗ ",
+                " ██║  ██║ ",
+                " ╚═╝  ╚═╝ "
+            },
+            // S
+            {
+                " ███████╗ ",
+                " ██╔════╝ ",
+                " ███████╗ ",
+                " ╚════██║ ",
+                " ███████║ ",
+                " ╚══════╝ "
+            },
+            // T
+            {
+                "████████╗ ",
+                "╚══██╔══╝ ",
+                "   ██║    ",
+                "   ██║    ",
+                "   ██║    ",
+                "   ╚═╝    "
+            },
+            // U
+            {
+                "██╗  ██╗  ",
+                "██║  ██║  ",
+                "██║  ██║  ",
+                "██║  ██║  ",
+                " █████╔╝  ",
+                "  ╚═══╝   "
+            },
+            // V
+            {
+                "██╗   ██╗ ",
+                "██║   ██║ ",
+                "██║   ██║ ",
+                "╚██╗ ██╔╝ ",
+                " ╚████╔╝  ",
+                "  ╚═══╝   "
+            },
+            // W
+            {
+                "██╗    ██╗",
+                "██║    ██║",
+                "██║ █╗ ██║",
+                "██║███╗██║",
+                "╚███╔███╔╝",
+                " ╚══╝╚══╝ "
+            },
+            // X
+            {
+                " ██╗  ██╗ ",
+                " ╚██╗██╔╝ ",
+                "  ╚███╔╝  ",
+                "  ██╔██╗  ",
+                " ██╔╝ ██╗ ",
+                " ╚═╝  ╚═╝ "
+            },
+            // Y
+            {
+                " ██╗   ██╗",
+                " ╚██╗ ██╔╝",
+                "  ╚████╔╝ ",
+                "   ╚██╔╝  ",
+                "    ██║   ",
+                "    ╚═╝   "
+            },
+            // Z
+            {
+                "███████╗ ",
+                "╚══███╔╝ ",
+                "  ███╔╝  ",
+                " ███╔╝   ",
+                "███████╗ ",
+                "╚══════╝ "
+            },
+            // Espaço
+            {
+                " ",
+                " ",
+                " ",
+                " ",
+                " ",
+                " "
+            }
+        };
+
+        nome = nome.toUpperCase();
+
+        
+        int alturaLetra = alphabet[0].length;
+        int larguraLetra = alphabet[0][0].length();
+        int larguraNome = nome.length() * larguraLetra + (nome.length() - 1); 
+        int larguraRetangulo = larguraNome + 4; 
+        int alturaRetangulo = alturaLetra + 2; 
+
+       
+        String[][] tabela = new String[alturaRetangulo][larguraRetangulo];
+
+        
+        for (int i = 0; i < alturaRetangulo; i++) {
+            for (int j = 0; j < larguraRetangulo; j++) {
+                if (i == 0 && j == 0) {
+                    tabela[i][j] = "╔";
+                } else if (i == 0 && j == larguraRetangulo - 1) {
+                    tabela[i][j] = "╗";
+                } else if (i == alturaRetangulo - 1 && j == 0) {
+                    tabela[i][j] = "╚";
+                } else if (i == alturaRetangulo - 1 && j == larguraRetangulo - 1) {
+                    tabela[i][j] = "╝";
+                } else if (i == 0 || i == alturaRetangulo - 1) {
+                    tabela[i][j] = "═";
+                } else if (j == 0 || j == larguraRetangulo - 1) {
+                    tabela[i][j] = "║";
+                } else {
+                    tabela[i][j] = " ";
+                }
+            }
+        }
+
+        
+        letras(tabela, nome, 1, 2, alphabet);
+
+        
+        int quantidadeC = tabela.length;
+        String[] colors = vitoriaFim("#7F00FF", "#FF0000", quantidadeC);
+
+       
+        for (int i = 0; i < quantidadeC; i++) {
+            System.out.print(colors[i]);
+            for (int j = 0; j < tabela[i].length; j++) {
+                System.out.print(tabela[i][j]);
+            }
+            System.out.println();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+    
+        }
+        
+        
+        System.out.println("\u001B[0m");
+    }
+    public static void nomeDoRank(String nome) {
+         
+       
        
         String[][] alphabet = {
             // A
@@ -746,6 +1061,7 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
         
         System.out.println("\u001B[0m");
     }
+
 
     public static void letras(String[][] tabela, String nome, int linha, int coluna, String[][] alphabet) {
         nome = nome.toUpperCase();
