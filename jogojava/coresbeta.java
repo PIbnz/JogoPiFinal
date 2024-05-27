@@ -21,22 +21,22 @@ public static void coresDegrade(String[] titulo) {
     String[] colors =new String[titulo.length];
     switch (aleatorio) {
         case 1:
-            colors = generateGradient("#FFA500", "#4B0082", quantidadeC);
+            colors = corDegrade("#FFA500", "#4B0082", quantidadeC);
             break;
         case 2:
-            colors = generateGradient("#00ffa7", "#4B0082", quantidadeC);
+            colors = corDegrade("#00ffa7", "#4B0082", quantidadeC);
             break;
         case 3:
-            colors = generateGradient("#33CCFF", "#4B0082", quantidadeC);
+            colors = corDegrade("#33CCFF", "#4B0082", quantidadeC);
             break;
         case 4:
-            colors = generateGradient("#FF1493", "#4B0082", quantidadeC);
+            colors = corDegrade("#FF1493", "#4B0082", quantidadeC);
             break;
         case 5:
-            colors = generateGradient("#FFA500", "#00FF00", quantidadeC);
+            colors = corDegrade("#FFA500", "#00FF00", quantidadeC);
             break;
         default:
-            colors = generateGradient("#FF1493", "#FFFF00", quantidadeC);
+            colors = corDegrade("#FF1493", "#FFFF00", quantidadeC);
             break;
     }
     for (int i = 0; i < quantidadeC ; i++) {
@@ -55,7 +55,7 @@ public static void coresDegrade(String[] titulo) {
 }
 
 // Função para gerar um degradê entre duas cores em um determinado número de etapas
-public static String[] generateGradient(String color1, String color2, int quanti) {
+public static String[] corDegrade(String color1, String color2, int quanti) {
     String[] degrade = new String[quanti];
 
     Color comecotColor = Color.decode(color1);// Color.decode tranfoema o "#FFA500" em cor no java
@@ -99,7 +99,7 @@ public static void Logo() {
     int quantidadeC = titulo.length;
 
     // Gera um degradê de cores
-    String[] colors = degradelogo("#FF1493", "#FFFF00", quantidadeC);
+    String[] colors =corDegrade("#FF1493", "#FFFF00", quantidadeC);
 
     // Imprime o logo linha por linha com o degradê de cores
     for (int i = 0; i < quantidadeC; i++) {
@@ -163,29 +163,6 @@ public static void Logo() {
     
 }
 
-// Função para gerar o degradê de cores
-public static String[] degradelogo(String color1, String color2, int quanti) {
-    String[] degrade = new String[quanti];
-
-    Color comecotColor = Color.decode(color1); // Transforma a cor inicial de string para Color
-    Color fimColor = Color.decode(color2); // Transforma a cor final de string para Color
-
-    // Calcula o incremento de cor para cada etapa
-    float corR = (float) (fimColor.getRed() - comecotColor.getRed()) / quanti;
-    float corG = (float) (fimColor.getGreen() - comecotColor.getGreen()) / quanti;
-    float corB = (float) (fimColor.getBlue() - comecotColor.getBlue()) / quanti;
-
-    // Gera as cores intermediárias para o degradê
-    for (int i = 0; i < quanti; i++) {
-        int r = comecotColor.getRed() + Math.round(corR * i);
-        int g = comecotColor.getGreen() + Math.round(corG * i);
-        int b = comecotColor.getBlue() + Math.round(corB * i);
-
-        degrade[i] = "\u001B[38;2;" + r + ";" + g + ";" + b + "m"; // Define a cor no formato ANSI
-    }
-
-    return degrade;
-}
 
 // Função para aguardar que o usuário pressione Enter
 public static void aguardarEnter() {
@@ -272,22 +249,22 @@ public static void coresDegradeText(String text) {
     // Seleção das cores para o degradê
     switch (aleatorio) {
         case 1:
-            colors = generateGradient("#FFA500", "#4B0082", quantidadeC);
+            colors = corDegrade("#FFA500", "#4B0082", quantidadeC);
             break;
         case 2:
-            colors = generateGradient("#00ffa7", "#4B0082", quantidadeC);
+            colors = corDegrade("#00ffa7", "#4B0082", quantidadeC);
             break;
         case 3:
-            colors = generateGradient("#33CCFF", "#4B0082", quantidadeC);
+            colors = corDegrade("#33CCFF", "#4B0082", quantidadeC);
             break;
         case 4:
-            colors = generateGradient("#FF1493", "#4B0082", quantidadeC);
+            colors = corDegrade("#FF1493", "#4B0082", quantidadeC);
             break;
         case 5:
-            colors = generateGradient("#FFA500", "#00FF00", quantidadeC);
+            colors = corDegrade("#FFA500", "#00FF00", quantidadeC);
             break;
         default:
-            colors = generateGradient("#FF1493", "#FFFF00", quantidadeC);
+            colors =corDegrade("#FF1493", "#FFFF00", quantidadeC);
             break;
     }
 
@@ -364,7 +341,7 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
         };
           
         int quantidadeC = titulo.length;      
-        String[] colors = ganahdor("#7F00FF", "#FF0000", quantidadeC);       
+        String[] colors = corDegrade("#7F00FF", "#FF0000", quantidadeC);       
         for (int i = 0; i < quantidadeC; i++) {
             System.out.print(colors[i] + titulo[i]);
             try {
@@ -422,28 +399,7 @@ public static String[] textDegrade(String color1, String color2, int quanti) {
     }
 
     // Função para gerar o degradê de cores
-    public static String[] ganahdor(String color1, String color2, int quanti) {
-        String[] degrade = new String[quanti];
-
-        Color comecotColor = Color.decode(color1);
-        Color fimColor = Color.decode(color2); 
-
-        // Calcula o incremento de cor para cada etapa
-        float corR = (float) (fimColor.getRed() - comecotColor.getRed()) / quanti;
-        float corG = (float) (fimColor.getGreen() - comecotColor.getGreen()) / quanti;
-        float corB = (float) (fimColor.getBlue() - comecotColor.getBlue()) / quanti;
-
-        // Gera as cores intermediárias para o degradê
-        for (int i = 0; i < quanti; i++) {
-            int r = comecotColor.getRed() + Math.round(corR * i);
-            int g = comecotColor.getGreen() + Math.round(corG * i);
-            int b = comecotColor.getBlue() + Math.round(corB * i);
-
-            degrade[i] = "\u001B[38;2;" + r + ";" + g + ";" + b + "m"; 
-        }
-
-        return degrade;
-    }
+    
     public static void nomeGanhador(String nome) {
          clearScreen();
         sombeta.somJogoPartida.pararSomPartida();
